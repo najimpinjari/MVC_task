@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@*inline expression statment*@
+<h2>Index</h2>
+<p> Today date and time is: @DateTime.Now</p>
+<p> this year is @DateTime.Now.Year </p>
+
+declaring variables
+
+@{
+    string name = "my name is najim and i  am a full stack developer ";
+    var todaytime = DateTime.Now.ToLongTimeString();
+}
+
+<h1> may discription is :  @name </h1>
+<h1> today datetime  is : @todaytime </h1>
+
+@*conditional statements*@
+
+@{
+    int mark = 6;
+
+    if (mark >= 10)
+    {
+        <h1>you are fail</h1>
+    }
+    else
+    {
+        <h1>you are pass</h1>
+
+    }
+}
+
