@@ -1,0 +1,60 @@
+﻿@model View_task2.Models.Category
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div>
+
+        <h2>Create Category View </h2>
+
+        @*@using (Html.BeginForm("GetValue", "Category", FormMethod.Get))
+            {
+                    @Html.Hidden("catname" ,"Home Appliances " )
+                    <br />
+                    <input type="submit"  value="Create" />
+                    <br />
+                    @Html.ActionLink("Pass Data ", "GetValue", new { catname = "Electronic Devices"})
+             }*@
+        @*@using (Html.BeginForm())
+            {
+                <label for="txtName">Name:</label>
+                <input type="text" id="txtName" name="Name" /><br />
+
+                <label for="txtRating">Rating:</label>
+                <input type="text" id="txtRating" name="Rating" /><br />
+
+                <input type="submit" value="Create" />
+            }*@
+
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.DisplayNameFor(Model => Model.Name)
+                @Html.TextBoxFor(Model => Model.Name)
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model => Model.Rating)
+                @Html.TextBoxFor(Model => Model.Rating)
+            </div>
+            <div>
+                <input type="submit" value="Create" />
+            </div>
+
+        }
+
+    </div>
+
+    @*@Html.Partial("_PartialView")*@
+    @*@{ 
+            Html.RenderPartial("_PartialView" , 100);
+
+    }*@
+
+    @Html.Action("GetPartialView")
+
+</body>
+</html>
