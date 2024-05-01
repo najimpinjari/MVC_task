@@ -1,0 +1,39 @@
+﻿@model List<CRUD_dbfa.DBContext.tbl_Employee>
+@{
+    ViewBag.Title = "EmployeeList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-image: url('https://images.pexels.com/photos/6991500/pexels-photo-6991500.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+</style>
+
+<h2>EmployeeList</h2>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Address</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Email</td>
+            <td>@item.Mobile</td>
+            <td>@item.Address</td>
+            <td>
+                <a href="@Url.Action("EditEmployee", new { id = item.Id })" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

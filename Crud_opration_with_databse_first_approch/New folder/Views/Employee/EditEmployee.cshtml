@@ -1,0 +1,40 @@
+﻿@model CRUD_dbfa.DBContext.tbl_Employee
+@{
+    ViewBag.Title = "EditEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EditEmployee</h2>
+
+
+@using (Html.BeginForm("EditEmployee_Post", "Employee", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            @Html.HiddenFor(x => x.Id)
+            <label>Name</label>
+            @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" }) <!-- Added class "text-danger" -->
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" }) <!-- Added class "text-danger" -->
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Mobile</label>
+            @Html.ValidationMessageFor(x => x.Mobile, "", new { @class = "errorMsg text-danger" })
+            @Html.TextBoxFor(x => x.Mobile, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            @Html.ValidationMessageFor(x => x.Address, "", new { @class = "errorMsg text-danger " })
+            @Html.TextAreaFor(x => x.Address, new { @class = "form-control", @rows = "5" })
+        </div>
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Update</button>
+        </div>
+    </div>
+}
+

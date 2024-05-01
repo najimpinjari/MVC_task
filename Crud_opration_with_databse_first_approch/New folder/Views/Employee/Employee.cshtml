@@ -1,0 +1,45 @@
+﻿@model CRUD_dbfa.DBContext.tbl_Employee
+@{
+    ViewBag.Title = "Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    body {
+        background-image: url('https://images.pexels.com/photos/6193740/pexels-photo-6193740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+</style>
+<h2>Employee</h2>
+
+@using (Html.BeginForm("AddEmployee", "Employee", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            <label>Name</label>
+            @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" }) <!-- Added class "text-danger" -->
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" }) <!-- Added class "text-danger" -->
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Mobile</label>
+            @Html.ValidationMessageFor(x => x.Mobile, "", new { @class = "errorMsg text-danger" })
+            @Html.TextBoxFor(x => x.Mobile, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            @Html.ValidationMessageFor(x => x.Address, "", new { @class = "errorMsg text-danger " })
+            @Html.TextAreaFor(x => x.Address, new { @class = "form-control", @rows = "5" })
+        </div>
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+        </div>
+    </div>
+}
